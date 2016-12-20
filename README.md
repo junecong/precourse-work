@@ -1,0 +1,3 @@
+# tippr
+
+Tip calculator
