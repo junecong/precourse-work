@@ -15,9 +15,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalNum: UILabel!
     @IBOutlet weak var tipChoose: UISegmentedControl!
 
+    @IBOutlet weak var defaultTip: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -25,23 +28,57 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let defaults = UserDefaults.standard
+        defaultTip.text = String(defaults.integer(forKey: "defaultKey"))
+        
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("view did appear")
+        //calculateTip(<#T##sender: AnyObject##AnyObject#>)
+        
+    }
 
     @IBAction func onTap(_ sender: Any) {
         view.endEditing(true)
     }
     
+    @IBAction func onTipSelection(_ sender: Any) {
+        calculateTip(tipChoose.selectedSegmentIndex as AnyObject)
+        
+    }
+    
+    
     @IBAction func calculateTip(_ sender: AnyObject) {
         
+        print( "calculate tip running")
+        
         let tipPercentages = [0.18, 0.2, 0.22]
+        
         let bill = Double(billNum.text!) ?? 0
-        print(tipChoose.selectedSegmentIndex)
-        let tip = bill * tipPercentages[tipChoose.selectedSegmentIndex]
+        
+        let defaults = UserDefaults.standard
+        defaultTip.text = String(defaults.integer(forKey: "defaultKey"))
+
+        let tipDub = (Double(defaultTip.text!)!/100)
+        
+        // let tip = bill * tipPercentages[tipChoose.selectedSegmentIndex]
+        
+        let tip = bill * tipDub
+        
         let total = bill + tip
         
         tipNum.text = String(format: "$%.2f", tip)
         totalNum.text = String(format: "$%.2f", total)
     }
     
+
+
     
 
 }
