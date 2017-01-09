@@ -73,7 +73,7 @@
                                 <rect key="frame" x="223" y="232" width="35" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="muW-ZO-nUY">
@@ -93,8 +93,7 @@
                                 </segments>
                                 <color key="tintColor" red="1" green="0.52792392094479257" blue="0.17052711561372724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="calculateTip:" destination="BYZ-38-t0r" eventType="valueChanged" id="Orl-Qd-aID"/>
-                                    <action selector="onTipSelection:" destination="BYZ-38-t0r" eventType="touchDown" id="8VY-Ei-h3o"/>
+                                    <action selector="nonDefaultTipSelected:" destination="BYZ-38-t0r" eventType="valueChanged" id="Wuy-EL-OeI"/>
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Other Tip Percentages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gtz-uu-Sx3">

@@ -39,8 +39,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("view did appear")
-        //calculateTip(<#T##sender: AnyObject##AnyObject#>)
+        calculateTip(self)
         
     }
 
@@ -48,17 +47,10 @@ class ViewController: UIViewController {
         view.endEditing(true)
     }
     
-    @IBAction func onTipSelection(_ sender: Any) {
-        calculateTip(tipChoose.selectedSegmentIndex as AnyObject)
-        
-    }
-    
     
     @IBAction func calculateTip(_ sender: AnyObject) {
         
         print( "calculate tip running")
-        
-        let tipPercentages = [0.18, 0.2, 0.22]
         
         let bill = Double(billNum.text!) ?? 0
         
@@ -67,18 +59,28 @@ class ViewController: UIViewController {
 
         let tipDub = (Double(defaultTip.text!)!/100)
         
-        // let tip = bill * tipPercentages[tipChoose.selectedSegmentIndex]
-        
         let tip = bill * tipDub
-        
         let total = bill + tip
         
         tipNum.text = String(format: "$%.2f", tip)
         totalNum.text = String(format: "$%.2f", total)
+        
     }
     
+    @IBAction func nonDefaultTipSelected(_ sender: Any) {
+        print( "calculate tip running")
+        let tipPercentages = [0.18, 0.2, 0.22]
+        let bill = Double(billNum.text!) ?? 0
+        let tip = bill * tipPercentages[tipChoose.selectedSegmentIndex]
+        let total = bill + tip
+        
+        tipNum.text = String(format: "$%.2f", tip)
+        totalNum.text = String(format: "$%.2f", total)
+        defaultTip.textColor = UIColor.white
 
-
+    }
+    
+    
     
 
 }
