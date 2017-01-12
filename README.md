@@ -21,7 +21,8 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [X] Dynamically update total when default tip changes
+- [X] Hide default tip when one of the standard options are selected
 
 ## Video Walkthrough 
 
