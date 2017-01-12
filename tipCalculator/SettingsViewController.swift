@@ -28,7 +28,7 @@ class SettingsViewController: UIViewController {
         super.viewWillAppear(animated)
         let defaults = UserDefaults.standard
         LabelDefaultTipDisplay.text = String(defaults.integer(forKey: "defaultKey"))
-        
+        defaultTip.becomeFirstResponder()
     }
     
     
@@ -40,13 +40,6 @@ class SettingsViewController: UIViewController {
     
         
     }
-
-    @IBAction func onTapSettings(_ sender: Any) {
-        
-        view.endEditing(true)
-    
-    }
-    
     
 
 }

@@ -15,25 +15,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalNum: UILabel!
     @IBOutlet weak var tipChoose: UISegmentedControl!
 
+    @IBOutlet weak var partyOf: UISegmentedControl!
     @IBOutlet weak var defaultTip: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let defaults = UserDefaults.standard
         defaultTip.text = String(defaults.integer(forKey: "defaultKey"))
-        
+        defaultTip.textColor = UIColor.black
+        billNum.becomeFirstResponder()
 
     }
     
@@ -43,14 +42,8 @@ class ViewController: UIViewController {
         
     }
 
-    @IBAction func onTap(_ sender: Any) {
-        view.endEditing(true)
-    }
-    
     
     @IBAction func calculateTip(_ sender: AnyObject) {
-        
-        print( "calculate tip running")
         
         let bill = Double(billNum.text!) ?? 0
         
@@ -61,26 +54,39 @@ class ViewController: UIViewController {
         
         let tip = bill * tipDub
         let total = bill + tip
+        //partySelected(total: total, tip: tip)
         
         tipNum.text = String(format: "$%.2f", tip)
         totalNum.text = String(format: "$%.2f", total)
         
     }
     
-    @IBAction func nonDefaultTipSelected(_ sender: Any) {
-        print( "calculate tip running")
+    @IBAction func nonDefaultTip(_ sender: Any) {
+        print( "nonDefaultTipSelected running")
         let tipPercentages = [0.18, 0.2, 0.22]
         let bill = Double(billNum.text!) ?? 0
         let tip = bill * tipPercentages[tipChoose.selectedSegmentIndex]
         let total = bill + tip
+        defaultTip.textColor = UIColor.white
+        //partySelected(total: total, tip: tip)
         
         tipNum.text = String(format: "$%.2f", tip)
         totalNum.text = String(format: "$%.2f", total)
-        defaultTip.textColor = UIColor.white
-
     }
     
-    
+    /*
+    func partySelected(total:Double, tip:Double) {
+        let selectedParty = partyOf.selectedSegmentIndex
+        //let selectedParty = 2
+        let partySizes = [1, 2, 3]
+        
+        let final = total/Double(partySizes[selectedParty])
+        //print(final)
+        totalNum.text = String(format: "$%.2f", final)
+        tipNum.text = String(format: "$%.2f", tip)
+
+    }
+    */
     
 
 }
