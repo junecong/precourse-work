@@ -1,6 +1,6 @@
-# Pre-work - Tippr
+# Pre-work - Tip Calculator
 
-**Tippr** is a tip calculator application for iOS.
+**Tip Calculator** is a tip calculator application for iOS.
 
 Submitted by: **June Cong**
 
