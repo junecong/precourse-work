@@ -4,7 +4,7 @@
 
 Submitted by: **June Cong**
 
-Time spent: **10** hours spent in total
+Time spent: **15** hours spent in total
 
 ## User Stories
 
@@ -14,21 +14,21 @@ The following **required** functionality is complete:
 * [X] Settings page to change the default tip percentage.
 
 The following **optional** features are implemented:
-* [ ] UI animations
+* [X] UI animations
 * [X] Remembering the bill amount across app restarts (if <10mins)
 * [ ] Using locale-specific currency and currency thousands separators.
 * [X] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
 
 The following **additional** features are implemented:
 
-- [X] Dynamically update total when default tip changes
+- [X] Dynamically update total when default tip changes the option selected
 
 
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
 
-![alt tag](https://raw.githubusercontent.com/junecong/tippr/master/codepath.gif?token=AGNCzlpWMxGmuYDTh8utOXmY0JzNb5cbks5YfDGFwA%3D%3D)
+![alt tag](https://raw.githubusercontent.com/junecong/tippr/master/codepath.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
